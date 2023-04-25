@@ -102,7 +102,10 @@ const server = http.createServer((req, res) => {
 
             res.setHeader("Access-Control-Allow-Origin", "*");
             res.writeHead(200, { 'Content-type': 'application/json' })
+            console.log("Break");
+            console.log(data);
             res.end(JSON.stringify(data));
+
         }
 
 
