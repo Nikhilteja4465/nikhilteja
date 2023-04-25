@@ -17,6 +17,31 @@ const server = http.createServer((req, res) => {
         });
 
     }
+    else if (req.url.startsWith('/assets/')) {
+        const imagePath = path.join(__dirname, 'public', req.url);
+        const imageStream = fs.createReadStream(imagePath);
+
+        if (req.url.match(/.*\.jpg$/i)) {
+            res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+
+        } else if (req.url.match(/.*\.png$/i)) {
+            res.writeHead(200, { 'Content-Type': 'image/png' });
+        }
+
+        imageStream.pipe(res);
+
+        imageStream.on('error', () => {
+            res.writeHead(404, { 'Content-type': 'text/html' });
+            res.end("<h1> 404 Not Found </h1>");
+        });
+    }
+    else if (req.url === '/style.css') { // add this else if statement to serve style.css
+        fs.readFile(path.join(__dirname, 'public', 'style.css'), (err, content) => {
+            if (err) throw err;
+            res.writeHead(200, { 'Content-type': 'text/css' });
+            res.end(content);
+        });
+    }
     else if (req.url == '/about.html') {
         fs.readFile(path.join(__dirname, 'public', 'about.html'), (err, content) => {
             if (err) throw err;
