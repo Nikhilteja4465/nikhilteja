@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhil Teja Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         :root {
             --primary: #4A90E2;
@@ -18,115 +19,85 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: var(--background);
-            scroll-behavior: smooth;
         }
+
         .profile-img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 20px;
             border: 4px solid var(--primary);
-        }
-
-        .nav-link:hover {
-            text-decoration: underline;
-            transition: color 0.3s;
-            color: var(--accent);
         }
 
         .timeline {
             padding-left: 20px;
             border-left: 4px solid var(--primary);
         }
-
-        .timeline-item {
-            margin-bottom: 30px;
-            padding: 15px;
-            background-color: white;
-            border-radius: 10px;
-            transition: box-shadow 0.3s;
-        }
-
-        .timeline-item:hover {
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-        }
     </style>
 </head>
 
 <body>
-    <!-- Navbar with Hamburger Menu -->
+    <!-- Navbar -->
     <nav class="bg-gradient-to-r from-blue-500 to-teal-400 text-white p-4 fixed w-full top-0 z-50 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Nikhil Teja</h1>
             <button class="lg:hidden p-2 border rounded" id="menu-toggle">☰</button>
             <ul class="hidden lg:flex space-x-6" id="navbar-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#edu" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#exp" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#edu">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#exp">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-        <ul class="lg:hidden hidden flex-col text-center bg-blue-600" id="mobile-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#edu">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#exp">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
 
     <!-- About Section -->
     <section id="about" class="py-20 text-center">
-        <img src="assets/profile.jpg" alt="Nikhil Teja" class="profile-img mx-auto">
+        <img src="profile.jpg" alt="Nikhil Teja" class="profile-img mx-auto">
         <h2 class="text-4xl font-bold mb-6">About Me</h2>
-        <p class="text-lg max-w-3xl mx-auto">I am a Computer Science student passionate about web development and technical writing.</p>
+        <p class="text-lg max-w-3xl mx-auto">Computer Science student passionate about web development and technical writing.</p>
     </section>
 
-    <!-- Education Section (Timeline) -->
+    <!-- Education Section -->
     <section id="edu" class="py-20 bg-gray-50">
         <h2 class="text-4xl font-bold mb-6 text-center">Education</h2>
         <div class="timeline max-w-3xl mx-auto">
-            <div class="timeline-item">
-                <h3 class="font-bold text-xl">University of New Haven</h3>
-                <p>Master’s in Computer Science</p>
-            </div>
-            <div class="timeline-item">
-                <h3 class="font-bold text-xl">Vignan University</h3>
-                <p>Bachelor’s in Computer Science</p>
-            </div>
+            <div class="mb-6"><strong>University of New Haven</strong> - Master's in Computer Science</div>
+            <div><strong>Vignan University</strong> - Bachelor's in Computer Science</div>
         </div>
     </section>
 
-    <!-- Experience Section (Timeline) -->
-    <section id="exp" class="py-20 bg-white">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
+        <ul class="text-lg max-w-3xl mx-auto list-disc pl-5">
+            <li>Smart Plant IoT System: Automated plant monitoring with alerts</li>
+            <li>Grocery Store Website: E-commerce platform using HTML/CSS</li>
+            <li>Online Voting System: Secure voting system with MySQL backend</li>
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="exp" class="py-20 bg-gray-50">
         <h2 class="text-4xl font-bold mb-6 text-center">Experience</h2>
         <div class="timeline max-w-3xl mx-auto">
-            <div class="timeline-item">
-                <h3 class="font-bold text-xl">Lead Technical Writer</h3>
-                <p>Honeywell</p>
-            </div>
-            <div class="timeline-item">
-                <h3 class="font-bold text-xl">Teaching Assistant</h3>
-                <p>University of New Haven</p>
-            </div>
-            <div class="timeline-item">
-                <h3 class="font-bold text-xl">Technical Writing Lead</h3>
-                <p>GeeksforGeeks</p>
-            </div>
+            <div class="mb-6"><strong>Lead Technical Writer</strong> - Honeywell</div>
+            <div class="mb-6"><strong>Teaching Assistant</strong> - University of New Haven</div>
+            <div><strong>Technical Writing Lead</strong> - GeeksforGeeks</div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="bg-gradient-to-r from-blue-500 to-teal-400 text-white text-center py-20">
         <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
-        <form action="mailto:181fa04465@gmail.com?subject=Contact%20from%20Portfolio" method="post" enctype="text/plain" class="max-w-lg mx-auto">
-            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="text" name="name" placeholder="Your Name" required>
-            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="email" name="email" placeholder="Your Email" required>
-            <textarea class="block w-full p-3 mb-4 text-gray-800 border rounded" name="message" placeholder="Your Message" rows="5" required></textarea>
+        <form id="contactForm" class="max-w-lg mx-auto">
+            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="text" id="name" placeholder="Your Name" required>
+            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="email" id="email" placeholder="Your Email" required>
+            <textarea class="block w-full p-3 mb-4 text-gray-800 border rounded" id="message" placeholder="Your Message" rows="5" required></textarea>
             <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">Send Message</button>
         </form>
+        <p id="formResponse" class="mt-4"></p>
     </section>
 
     <!-- Footer -->
@@ -137,9 +108,24 @@
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        
         menuToggle.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            try {
+                await axios.post('https://your-backend-api-url.com/send-email', { name, email, message });
+                document.getElementById('formResponse').textContent = 'Message sent successfully!';
+                document.getElementById('formResponse').style.color = 'green';
+            } catch (error) {
+                document.getElementById('formResponse').textContent = 'Failed to send message.';
+                document.getElementById('formResponse').style.color = 'red';
+            }
         });
     </script>
 </body>
