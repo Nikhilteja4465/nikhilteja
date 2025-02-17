@@ -3,204 +3,119 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhil Teja Portfolio</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --background: #F0F4F8;
+            --text-primary: #2D2D2D;
+            --accent: #FF8A65;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background);
+            scroll-behavior: smooth;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+            transition: color 0.3s;
+            color: var(--accent);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            transition: box-shadow 0.3s;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
-    <nav id="navbar">
-        <a href="#" class="nav-link">
-            <h1>NikhilTeja</h1>
-        </a>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#edu" class="nav-link">Education</a>
-            </li>
-            <li class="nav-item">
-                <a href="#project" class="nav-link">Projects</a>
-            </li>
-            <li class="nav-item">
-                <a href="#exp" class="nav-link">Experience</a>
-            </li>
-            <li class="nav-item">
-                <a href="#blog" class="nav-link">Blogs</a>
-            </li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-
-    </nav>
-    <section id="hero">
-        <div id="hero-text">
-            <h1>HI👋,<br>Welcome </h1>
-            <p> Myself Nikhil Teja Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, neque
-                necessitatibus animi
-                explicabo enim ad a tempora provident sit. Maiores Check out my portfolio !
-            </p>
-        </div>
-        <img src="./assets/nikhil.jpg" alt="Nikhil image" id="hero-img">
-    </section>
-
-    <section id="about">
-        <h2 class="headings">About</h2>
-        <p>A focused and detail-oriented Graduate Computer Science student pursuing a career in STEM. A dedicated
-            enthusiast with research and implementation experience in software development, including machine learning,
-            artificial intelligence, web development, and networking. Expertise in media content creation and editing,
-            technical documentation, and Microsoft Office.</p>
-    </section>
-
-    <section id="edu">
-        <h2 class="headings">Education</h2>
-        <h3>currently</h3>
-        <p id="educ"><span>University of New Haven</span> – West Haven, CT | Computer Science.</p>
-
-    </section>
-
-    <section id="project">
-        <h2 id="projecth2" class="headings">Projects</h2>
-        <div id="project-grid">
-            <div class="proj">
-                <h3>Crop Life Prediction using Machine Learning . | Website</h3>
-                <p><span>Description:</span> This project helps users to check whether their crops are alive or not. If
-                    not
-                    alive what is the reason for their death. This is done using Machine Learning Algorithm.</p>
-            </div>
-            <div class="proj">
-                <h3>Online Voting System Using MySQL</h3>
-                <p><span>Description:</span> In this Project we have designed a Voting System purely works on SQL
-                    Commands
-                    using
-                    triggers etc.</p>
-            </div>
-        </div>
-
-    </section>
-
-    <section id="exp">
-        <h2 class="headings">Experience</h2>
-        <div style="padding-left: 40px;">
-            <ul id="grid-list">
-                <li>
-                    <h3>Data Science Intern</h3>
-                    <p>2019</p>
-                    <p>Sparks Foundation, Internship</p>
-                </li>
-
-
-
-                <li>
-                    <h3>HackClub</h3>
-                    <p>2020</p>
-                    <p>Campus Ambassador</p>
-                </li>
-
-
-
-                <li>
-                    <h3>GeeksforGeeks</h3>
-                    <p>2021</p>
-                    <p>Technical Writing,student chapter lead</p>
-                </li>
-
-
-
-                <li>
-                    <h3>University of New Haven</h3>
-                    <p>currently 2023</p>
-                    <p>Teaching Assistant</p>
-                </li>
-
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-blue-500 to-teal-400 text-white p-4 fixed w-full top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Nikhil Teja</h1>
+            <ul class="hidden lg:flex space-x-6">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#edu" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#exp" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+        </div>
+    </nav>
 
+    <!-- About Section -->
+    <section id="about" class="py-20 text-center">
+        <h2 class="text-4xl font-bold mb-6">About Me</h2>
+        <p class="text-lg max-w-3xl mx-auto">I am a Computer Science student passionate about building web applications, IoT projects, and creating technical content.</p>
+    </section>
+
+    <!-- Education Section (Timeline) -->
+    <section id="edu" class="py-20 bg-gray-50">
+        <h2 class="text-4xl font-bold mb-6 text-center">Education</h2>
+        <div class="timeline max-w-3xl mx-auto">
+            <div class="timeline-item">
+                <h3 class="font-bold text-xl">University of New Haven</h3>
+                <p>Master’s in Computer Science (Current)</p>
+            </div>
+            <div class="timeline-item">
+                <h3 class="font-bold text-xl">XYZ College</h3>
+                <p>Bachelor’s in Computer Science</p>
+            </div>
         </div>
     </section>
 
-    <section id="blog">
-        <h2 class="headings">Blogs</h2>
-
-        <div id="blogbox">
-            <div class="blogtext">
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque architecto ratione ex impedit
-                    possimus quas doloribus excepturi quidem vel non dicta minima quam eligendi hic veritatis commodi ad
-                    labore tempore soluta cupiditate id, mollitia provident! Suscipit quod quos expedita cupiditate.
-                    ipsum dolor sit amet consectetur adipisicing elit. </p>
+    <!-- Experience Section (Timeline) -->
+    <section id="exp" class="py-20 bg-white">
+        <h2 class="text-4xl font-bold mb-6 text-center">Experience</h2>
+        <div class="timeline max-w-3xl mx-auto">
+            <div class="timeline-item">
+                <h3 class="font-bold text-xl">Lead Technical Writer</h3>
+                <p>[Company Name]</p>
             </div>
-            <div class="blogtext">
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque architecto ratione ex impedit
-                    possimus quas doloribus excepturi quidem vel non dicta minima quam eligendi hic veritatis commodi ad
-                    labore tempore soluta cupiditate id, mollitia provident! Suscipit quod quos expedita cupiditate.
-                    ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <div class="timeline-item">
+                <h3 class="font-bold text-xl">Teaching Assistant</h3>
+                <p>University of New Haven</p>
             </div>
-            <div class="blogtext">
-                <h1>Heading</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque architecto ratione ex impedit
-                    possimus quas doloribus excepturi quidem vel non dicta minima quam eligendi hic veritatis commodi ad
-                    labore tempore soluta cupiditate id, mollitia provident! Suscipit quod quos expedita cupiditate.
-                    ipsum dolor sit amet consectetur adipisicing elit. </p>
+            <div class="timeline-item">
+                <h3 class="font-bold text-xl">Technical Writing Lead</h3>
+                <p>GeeksforGeeks</p>
             </div>
-
         </div>
-
     </section>
-    <a href="#" class="back-to-top"><img src="./assets/top.png" width="30px" height="30px" alt="top-button"></a>
 
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gradient-to-r from-blue-500 to-teal-400 text-white text-center py-20">
+        <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
+        <form action="mailto:181fa04465@gmail.com?subject=Contact%20from%20Portfolio" method="post" enctype="text/plain" class="max-w-lg mx-auto">
+            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="text" name="name" placeholder="Your Name" required>
+            <input class="block w-full p-3 mb-4 text-gray-800 border rounded" type="email" name="email" placeholder="Your Email" required>
+            <textarea class="block w-full p-3 mb-4 text-gray-800 border rounded" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">Send Message</button>
+        </form>
+    </section>
 
-    <footer class="footer" id="footer">
-        <h4>My social media links</h4>
-        <a href="#" class="footimg"> <img src="./assets/github_PNG40.png" width="30px" height="30px"></a>
-        <a href="#" class="footimg"><img src="./assets/Linkedin-Icon.png" width="30px" height="30px"></a>
-        <a href="#" class="footimg"><img src="./assets/Twitter-Logo.png" width="30px" height="30px"></a>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2025 Nikhil Teja. All Rights Reserved.</p>
     </footer>
-
 </body>
-<script>
-    var hiddenElement = document.querySelector('.back-to-top');
-
-    window.addEventListener('scroll', function () {
-        if (isScrolledIntoView(hiddenElement)) {
-            hiddenElement.classList.add('visible');
-        }
-    });
-
-    function isScrolledIntoView(element) {
-        var rect = element.getBoundingClientRect();
-        var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        var topVisible = rect.top < windowHeight;
-        var bottomVisible = rect.bottom >= 0;
-        return (topVisible && bottomVisible);
-    }
-    //  code for hamburger menu
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    })
-
-    document.querySelectorAll(".nav-item").forEach(n => n.
-        addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }))
-
-    // document.querySelector(".nav-link").forEach(n => n.
-    //     addEventListener("click", () => {
-    //         hamburger.classList.remove("active");
-    //         navMenu.classList.remove("active");
-    //     }))
-
-</script>
-
 </html>
